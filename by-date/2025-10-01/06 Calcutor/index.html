@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleek Dark Mode Calculator</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind for custom colors and Inter font -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bg-dark': '#1c1c1e',
+                        'card-dark': '#2c2c2e',
+                        'operator-bg': '#ff9500',
+                        'secondary-btn': '#58565b',
+                        'digit-btn': '#48484a',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles for a cleaner look */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1c1c1e;
+        }
+        .calc-button {
+            /* Basic button styling */
+            @apply flex justify-center items-center p-4 text-2xl font-semibold rounded-xl transition-all duration-150 active:scale-95 shadow-lg;
+            user-select: none; /* Prevent text selection */
+            height: 70px; /* Standardize button height */
+        }
+        .display-text {
+            /* Ensure text wraps nicely */
+            word-wrap: break-word;
+            word-break: break-all;
+            line-height: 1.2;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <!-- Calculator Container -->
+    <div id="calculator" class="w-full max-w-sm bg-card-dark rounded-3xl shadow-2xl p-6">
+        
+        <!-- Display Screen -->
+        <div class="mb-6 p-4 text-white text-right overflow-hidden">
+            <div id="result-display" class="text-4xl sm:text-5xl font-light h-16 display-text">0</div>
+            <div id="expression-display" class="text-xl sm:text-2xl font-thin text-gray-400 h-8 display-text"></div>
+        </div>
+
+        <!-- Button Grid -->
+        <div class="grid grid-cols-4 gap-3">
+
+            <!-- Row 1: Clear, Sign Change, Percent, Divide -->
+            <button class="calc-button bg-secondary-btn text-white" onclick="handleButtonClick('AC')">AC</button>
+            <button class="calc-button bg-secondary-btn text-white" onclick="handleButtonClick('+/-')">+/-</button>
+            <button class="calc-button bg-secondary-btn text-white" onclick="handleButtonClick('%')">%</button>
+            <button class="calc-button bg-operator-bg text-white" onclick="handleButtonClick('/')">÷</button>
+
+            <!-- Row 2: 7, 8, 9, Multiply -->
+            <button class="calc-button bg-digit-btn text-white" onclick="handleButtonClick('7')">7</button>
+            <button class="calc-button bg-digit-btn text-white" onclick="handleButtonClick('8')">8</button>
+            <button class="calc-button bg-digit-btn text-white" onclick="handleButtonClick('9')">9</button>
+            <button class="calc-button bg-operator-bg text-white" onclick="handleButtonClick('*')">×</button>
+
+            <!-- Row 3: 4, 5, 6, Subtract -->
+            <button class="calc-button bg-digit-btn text-white" onclick="handleButtonClick('4')">4</button>
+            <button class="calc-button bg-digit-btn text-white" onclick="handleButtonClick('5')">5</button>
+            <button class="calc-button bg-digit-btn text-white" onclick="handleButtonClick('6')">6</button>
+            <button class="calc-button bg-operator-bg text-white" onclick="handleButtonClick('-')">−</button>
+
+            <!-- Row 4: 1, 2, 3, Add -->
+            <button class="calc-button bg-digit-btn text-white" onclick="handleButtonClick('1')">1</button>
+            <button class="calc-button bg-digit-btn text-white" onclick="handleButtonClick('2')">2</button>
+            <button class="calc-button bg-digit-btn text-white" onclick="handleButtonClick('3')">3</button>
+            <button class="calc-button bg-operator-bg text-white" onclick="handleButtonClick('+')">+</button>
+
+            <!-- Row 5: 0, Decimal, Backspace, Equals -->
+            <button class="calc-button col-span-2 bg-digit-btn text-white justify-start pl-8" onclick="handleButtonClick('0')">0</button>
+            <button class="calc-button bg-digit-btn text-white" onclick="handleButtonClick('.')">.</button>
+            <button class="calc-button bg-secondary-btn text-white" onclick="handleButtonClick('DEL')">
+                <!-- Backspace Icon (Inline SVG) -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l2-2m0 0l-2-2m2 2h4M7 8l1.626 1.626C10.748 10.748 13.047 11.238 15 11.238h1.125c1.025 0 2.02.43 2.72.112l1.378-1.837c.7-.933-.556-2.278-1.581-2.278h-4.318C10.748 6.748 8.047 6.238 6 6.238zM6 18h4m-4 0h-1.125c-1.025 0-2.02-.43-2.72-.112l-1.378-1.837c-.7-.933.556-2.278 1.581-2.278h4.318C13.252 17.252 15.953 17.762 18 17.762z" />
+                </svg>
+            </button>
+            <button class="calc-button bg-operator-bg text-white" onclick="handleButtonClick('=')">=</button>
+
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // State variables for the calculator
+        let currentInput = '0'; // The number currently being typed/displayed
+        let prevInput = '';      // The number before the operation
+        let operation = null;    // The operation (+, -, *, /)
+        let isResult = false;    // Flag to indicate if the current display is a calculated result
+
+        const resultDisplay = document.getElementById('result-display');
+        const expressionDisplay = document.getElementById('expression-display');
+
+        /**
+         * Cleans up numbers for display, handling large numbers, decimals, and '0'.
+         * @param {string | number} num - The number to format.
+         * @returns {string} The formatted string.
+         */
+        function formatNumber(num) {
+            let s = String(num);
+
+            // Handle '0' input initially
+            if (s === '') return '0';
+            
+            // Check for potential scientific notation from previous calculation
+            if (s.toLowerCase().includes('e')) {
+                // If in scientific notation, convert back to string and limit precision
+                let number = parseFloat(s);
+                s = number.toFixed(10).replace(/\.?0+$/, ""); // Remove trailing zeros
+            }
+
+            // Limit length for display aesthetics
+            if (s.length > 15) {
+                // If it's a decimal, try to shorten the decimal part
+                if (s.includes('.')) {
+                    const [integerPart, decimalPart] = s.split('.');
+                    if (integerPart.length + 1 > 15) {
+                        return parseFloat(s).toPrecision(10); // Use precision for very large numbers
+                    }
+                    s = parseFloat(s).toFixed(10).replace(/\.?0+$/, ""); // Trim excess decimals
+                    if (s.length > 15) {
+                        return parseFloat(s).toPrecision(10);
+                    }
+                } else {
+                    return parseFloat(s).toPrecision(10);
+                }
+            }
+
+            // Add thousand separators for readability (optional, but nice)
+            const parts = s.split('.');
+            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+            return parts.join('.');
+        }
+
+        /**
+         * Updates the calculator displays based on the current state.
+         */
+        function updateDisplay() {
+            // Main display: current number
+            resultDisplay.textContent = formatNumber(currentInput);
+
+            // Secondary display: previous operation and number
+            if (operation && prevInput !== '') {
+                // Map internal operator to display symbol
+                const displayOperator = { '+': '+', '-': '−', '*': '×', '/': '÷' }[operation] || '';
+                expressionDisplay.textContent = `${formatNumber(prevInput)} ${displayOperator}`;
+            } else {
+                expressionDisplay.textContent = '';
+            }
+        }
+
+        /**
+         * Performs the calculation based on stored values and operation.
+         * @returns {number} The calculated result.
+         */
+        function calculate() {
+            const prev = parseFloat(prevInput);
+            const current = parseFloat(currentInput);
+
+            if (isNaN(prev) || isNaN(current) || !operation) {
+                return current;
+            }
+
+            let result = 0;
+            switch (operation) {
+                case '+':
+                    result = prev + current;
+                    break;
+                case '-':
+                    result = prev - current;
+                    break;
+                case '*':
+                    result = prev * current;
+                    break;
+                case '/':
+                    if (current === 0) {
+                        // Handle division by zero
+                        return "Error"; 
+                    }
+                    result = prev / current;
+                    break;
+                default:
+                    return current;
+            }
+
+            // Fix floating point issues by rounding slightly for display
+            // Math.round(result * 100000000000) / 100000000000 is a common fix
+            return Math.round(result * 10000000000) / 10000000000;
+        }
+
+        /**
+         * Main handler for all button clicks.
+         * @param {string} value - The value of the button clicked.
+         */
+        function handleButtonClick(value) {
+            if (/\d/.test(value)) {
+                // Handle digits (0-9)
+                if (isResult || currentInput === '0' || currentInput === 'Error') {
+                    currentInput = value;
+                    isResult = false;
+                } else if (currentInput.length < 15) {
+                    currentInput += value;
+                }
+            } else if (value === '.') {
+                // Handle decimal point
+                if (isResult || currentInput === 'Error') {
+                    currentInput = '0.';
+                    isResult = false;
+                } else if (!currentInput.includes('.')) {
+                    currentInput += '.';
+                }
+            } else if (['+', '-', '*', '/'].includes(value)) {
+                // Handle operators
+                if (currentInput === 'Error') {
+                    currentInput = '0';
+                    prevInput = '';
+                    operation = null;
+                }
+
+                if (prevInput && operation && !isResult) {
+                    // Chain calculations: if there's a previous operation, calculate first
+                    const result = calculate();
+                    currentInput = String(result);
+                    prevInput = currentInput;
+                } else {
+                    prevInput = currentInput;
+                }
+                
+                operation = value;
+                // Prepare for the next number input
+                isResult = false; 
+                currentInput = '0'; // Next input will overwrite this '0'
+            
+            } else if (value === '=') {
+                // Handle equals
+                if (operation && prevInput !== '' && currentInput !== 'Error') {
+                    const result = calculate();
+                    
+                    if (result === 'Error') {
+                         currentInput = 'Error';
+                         prevInput = '';
+                         operation = null;
+                    } else {
+                        currentInput = String(result);
+                        prevInput = ''; // Clear previous input after final calculation
+                        operation = null;
+                        isResult = true;
+                    }
+                }
+            } else if (value === 'AC') {
+                // All Clear (Reset everything)
+                currentInput = '0';
+                prevInput = '';
+                operation = null;
+                isResult = false;
+            } else if (value === '+/-') {
+                // Change Sign
+                if (currentInput !== '0' && currentInput !== 'Error') {
+                    currentInput = String(parseFloat(currentInput) * -1);
+                }
+            } else if (value === '%') {
+                // Percentage (e.g., 50% = 0.5)
+                if (currentInput !== 'Error') {
+                    currentInput = String(parseFloat(currentInput) / 100);
+                    isResult = true;
+                }
+            } else if (value === 'DEL') {
+                // Backspace / Delete
+                if (currentInput === 'Error' || isResult) {
+                    currentInput = '0';
+                    isResult = false;
+                } else if (currentInput.length > 1) {
+                    currentInput = currentInput.slice(0, -1);
+                } else {
+                    currentInput = '0';
+                }
+                if (currentInput === '-') {
+                    currentInput = '0'; // prevent solitary '-'
+                }
+            }
+
+            updateDisplay();
+        }
+
+        // Initialize display on load
+        window.onload = updateDisplay;
+
+    </script>
+</body>
+</html>

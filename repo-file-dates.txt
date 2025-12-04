@@ -1,0 +1,224 @@
+﻿2025-09-20 11:28:14 +0530|Initial commit
+.vscode/launch.json
+01 JS/index.html
+01 JS/new.js
+01 JS/script.js
+01 JS/style.css
+01 Mega Projecte/1.c
+01 Mega Projecte/1.exe
+01 Mega Projecte/1.py
+01 Mega Projecte/a.exe
+01 Mega Projecte/main.py
+01 Mega Projecte/musicLibaray.py
+01 Mega Projecte/my.py
+01 Mega Projecte/photo.py
+14 web/electronics.css
+14 web/electronics.html
+18 web/new.html
+29 web/appu.jpeg
+29 web/index.html
+29 web/index2.html
+29 web/my.html
+30 web/index.html
+31 web/index.html
+32 web/01.c
+32 web/01.exe
+32 web/index.html
+HACC.docx
+HACC_Idea_template.pptx
+MY NEW ONE/about.html
+MY NEW ONE/appu.jpg
+MY NEW ONE/index.html
+MY NEW ONE/script.js
+MY NEW ONE/style.css
+MY NEW ONE/umesh.jpg
+NETFLEX CLONE/imgs/log.svg
+NETFLEX CLONE/index.html
+NETFLEX CLONE/script.js
+NETFLEX CLONE/style.css
+New folder/index.html
+New folder/srcipt.js
+New folder/style.css
+New folder/umesh.jpg
+Sigma-Web-devlopment
+Web site/new.html
+netflex by code with harry/index.html
+netflex by code with harry/script.js
+netflex by code with harry/style.css
+
+2025-04-28 20:36:40 +0530|Initial commit
+.vscode/settings.json
+01 web/appu.jpeg
+01 web/index.html
+01 web/script.js
+01 web/style.css
+01.pdf
+02 web/index.html
+02 web/script.js
+02 web/style.css
+02.pdf
+03 web/index.html
+03 web/script.js
+03 web/style.css
+03.pdf
+04 web/bookmark.html
+04 web/index.html
+04 web/script.js
+04 web/style.css
+04.pdf
+05 web/appu.jpeg
+05 web/index.html
+05 web/script.js
+05 web/style.css
+05 web/umesh.jpg
+06 web/index.html
+06 web/script.js
+06 web/style.css
+07 web/index.html
+07 web/script.js
+07 web/style.css
+08 web/index.html
+08 web/script.js
+08 web/style.css
+09 web/.vscode/launch.json
+09 web/index.html
+09 web/script.js
+09 web/style.css
+10 web/.vscode/launch.json
+10 web/appu.mp3
+10 web/img.svg
+10 web/index.html
+10 web/name.mp4
+10 web/script.js
+10 web/style.css
+10 web/umesh.jpg
+11 web/index.html
+11 web/script.js
+11 web/style.css
+12 web/.vscode/launch.json
+12 web/appu.mp3
+12 web/index.html
+12 web/name.mp4
+12 web/umesh.jpg
+13 web/index.html
+13 web/style.css
+14 web/index.html
+14 web/script.js
+14 web/style.css
+15 web/index.html
+15 web/script.js
+15 web/style.css
+16 web/index.html
+16 web/script.js
+16 web/sytle.css
+17 web/.vscode/launch.json
+17 web/index.html
+17 web/script.js
+17 web/style.css
+18 web/index.html
+18 web/style.css
+19 web/colrors.html
+19 web/index.html
+19 web/style.css
+20 web/index.html
+21 web/index.html
+22 web/index.html
+22 web/style.css
+23 web/index.html
+23 web/style.css
+24 web/index.html
+24 web/style.css
+25 web/index.html
+25 web/style.css
+26 web/index.html
+26 web/style.css
+27 web/index.html
+27 web/style.css
+28 web/01.c
+28 web/01.exe
+28 web/first-pr-reva
+28 web/index.html
+5 Free HTML Projects Freelancing Bundle.zip
+C ChapterWise Notes/Chapter 0 - Introduction/Chapter 0.pdf
+C ChapterWise Notes/Chapter 1/Chapter 1 - Practice set.pdf
+C ChapterWise Notes/Chapter 1/Chapter 1.pdf
+C ChapterWise Notes/Chapter 10/Chapter 10 - Practice.pdf
+C ChapterWise Notes/Chapter 10/Chapter 10.pdf
+C ChapterWise Notes/Chapter 11/Chapter 11 - Practice set.pdf
+C ChapterWise Notes/Chapter 11/Chapter 11.pdf
+C ChapterWise Notes/Chapter 2/Chapter 2 - Instructions and Operators.pdf
+C ChapterWise Notes/Chapter 2/Chapter 2 - Practice set.pdf
+C ChapterWise Notes/Chapter 3/Chapter 3 - Conditional Instructions .pdf
+C ChapterWise Notes/Chapter 3/Chapter 3 - Practice Set.pdf
+C ChapterWise Notes/Chapter 4/Chapter 4 - Loop Control Instructions.pdf
+C ChapterWise Notes/Chapter 4/Chapter 4 - Practice Set.pdf
+C ChapterWise Notes/Chapter 5/Chapter 5 - Functions & Recursion.pdf
+C ChapterWise Notes/Chapter 5/Chapter 5 - Practice Set.pdf
+C ChapterWise Notes/Chapter 6/Chapter 6 - Pointers.pdf
+C ChapterWise Notes/Chapter 6/Chapter 6 - Practice set.pdf
+C ChapterWise Notes/Chapter 7/Chapter 7 - Practice Set.pdf
+C ChapterWise Notes/Chapter 7/Chapter 7.pdf
+C ChapterWise Notes/Chapter 8/Chapter 8 - Practice set.pdf
+C ChapterWise Notes/Chapter 8/Chapter 8 - Strings.pdf
+C ChapterWise Notes/Chapter 9/Chapter 9 - Practice set.pdf
+C ChapterWise Notes/Chapter 9/Chapter 9 - Structures.pdf
+C ChapterWise Notes/Project 1/Project 1 - Number Guessing Game.pdf
+C ChapterWise Notes/Project 1/game.c
+C ChapterWise Notes/Project 1/game.exe
+C ChapterWise Notes/Project 1/random_num_gen.c
+C ChapterWise Notes/Project 1/random_num_gen.exe
+C ChapterWise Notes/Project 2/Project 2.pdf
+C ChapterWise Notes/Project 2/game.c
+C ChapterWise Notes/Project 2/game.exe
+HTML/Food Delivery/index.html
+HTML/Persnal port folio/index.html
+HTML/Persnal port folio/script.js
+HTML/Persnal port folio/style.css
+HTML/chapter 01/index.html
+HTML/chapter 01/practise.html
+HTML/chapter 01/script.js
+HTML/chapter 01/style.css
+HTML/chapter 02/big small.html
+HTML/chapter 02/index.html
+HTML/chapter 02/practise.html
+HTML/chapter 03/index.html
+HTML/chapter 04/01.html
+HTML/chapter 04/02.html
+HTML/chapter 04/forms.html
+HTML/chapter 04/index.html
+HTML/chapter 04/table.html
+HTML_ChapterWise_Notes (4).zip
+I an E/.vscode/launch.json
+I an E/appu.jpeg
+I an E/appu1.jpeg
+I an E/index.html
+I an E/new.html
+I an E/realuai.html
+I an E/script.js
+I an E/style.css
+Project 01/food.jpeg
+Project 01/index.html
+Project 01/index3.html
+Project 01/script.js
+Project 01/style.css
+SK TRENDS/.vscode/launch.json
+SK TRENDS/index.html
+SK TRENDS/script.js
+SK TRENDS/style.css
+The Ultimate HTML handbook.pdf
+Web site/index.html
+Web site/py.py
+Web site/script.js
+Web site/style.css
+appu.jpeg
+appu1.jpeg
+css (1).pdf
+download (1).pdf
+download.pdf
+ie/index.html
+new/index.html
+new/script.js
+new/styles.css
+web-development
+web-development-1
+web-development-2

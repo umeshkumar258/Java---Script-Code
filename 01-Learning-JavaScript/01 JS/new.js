@@ -1,4 +1,2 @@
-
-
-console.log("umehs jb")
-console.log("new one i starting learinig js")
+console.log("Umesh JB");
+console.log("I am starting to learn JavaScript.");

@@ -1,19 +1,21 @@
+"use strict";
+
+// Product Object
 const product = {
-
-    name : "parker jotter Pen" ,
-    colore : "black" ,
-    price : 270,
-
-    offer : 5
-
+  name: "Parker Jotter Pen",
+  color: "Black",
+  price: 270,
+  offerPercentage: 5
 };
 
-console.log(product)
+console.log("Product Details:", product);
+console.log("Type of product:", typeof product);
 
-console.log(typeof(product))
+// String Concatenation Example
+const a = "1";
+const b = "44";
 
-let a = "1"
-let b = "44"
+console.log("String addition:", a + b);
 
-
-console.log(a+b)
+// Convert to numbers if needed
+console.log("Numeric addition:", Number(a) + Number(b));

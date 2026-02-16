@@ -1,39 +1,50 @@
-//javascript
+"use strict";
+
 // ---------------------------
-// Variables with different data types
+// Primitive Data Types
 // ---------------------------
 
-let x = "umesh Kumar";   // String
-let y = 22;              // Number (integer)
-let z = 3.333;           // Number (floating point)
-const p = true;          // Boolean
-let q = undefined;       // Undefined (no value assigned)
-let r = null;            // Null (intentional empty value)
+const fullName = "Umesh Kumar";   // String
+const age = 22;                   // Number (integer)
+const height = 3.333;             // Number (floating point)
+const isStudent = true;           // Boolean
+let notAssigned;                  // Undefined
+const emptyValue = null;          // Null (intentional empty)
 
 // Printing values
-console.log(x, y, z, p, q, r);
+console.log("Values:");
+console.log(fullName, age, height, isStudent, notAssigned, emptyValue);
 
-// Checking the type of variables
-console.log("Type of x:", typeof x);  // string
-console.log("Type of y:", typeof y);  // number
-console.log("Type of z:", typeof z);  // number
-console.log("Type of p:", typeof p);  // boolean
-console.log("Type of q:", typeof q);  // undefined
-console.log("Type of r:", typeof r);  // object (this is a known JavaScript quirk)
+// Checking types
+console.log("\nData Types:");
+console.log("fullName:", typeof fullName);
+console.log("age:", typeof age);
+console.log("height:", typeof height);
+console.log("isStudent:", typeof isStudent);
+console.log("notAssigned:", typeof notAssigned);
+console.log("emptyValue:", typeof emptyValue); 
+// ⚠️ null returns "object" (JavaScript bug from 1995)
 
 // ---------------------------
-// Objects
+// Object Example
 // ---------------------------
 
-let ob = {
-    name: "umesh",
-    job: "python developer",
-    age: 33
+const person = {
+  name: "Umesh",
+  profession: "Python Developer",
+  age: 33,
+  salary: 100_00_000, // Numeric instead of string (better practice)
 };
 
-// Adding a new property to the object
-ob.salary = "100 lakh";
+// Accessing properties
+console.log("\nPerson Details:");
+console.log(person);
 
-// Printing object
-console.log(ob);
+// Adding new property properly
+person.location = "India";
 
+// Updating property
+person.age = 34;
+
+console.log("\nUpdated Person:");
+console.log(person);

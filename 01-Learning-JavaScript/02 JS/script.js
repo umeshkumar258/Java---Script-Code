@@ -1,44 +1,53 @@
-//javascript
-// Printing a string
-console.log("umesh kumar jb");
+"use strict";
 
 // --------------------
-// Variables with var
+// Printing a string
 // --------------------
-var num1 = 5;
-var num2 = 39;
-var name = "Harry";
+console.log("Umesh Kumar JB");
+
+// --------------------
+// Using const (Best Practice)
+// --------------------
+const firstNumber = 5;
+const secondNumber = 39;
+const personName = "Harry";
 
 // Adding numbers
-console.log(num1 + num2 + 333); // 377
-// Printing a string
-console.log(name);
+console.log("Total:", firstNumber + secondNumber + 333);
 
-// Checking the type of variables
-console.log(typeof num1, typeof num2, typeof name);
+// Printing string
+console.log("Name:", personName);
 
-// Example of variable naming with symbols
-var $_username = "umesh";
-console.log($_username);
+// Checking types
+console.log("Types:");
+console.log(
+  typeof firstNumber,
+  typeof secondNumber,
+  typeof personName
+);
+
+// Valid variable naming
+const userName = "umesh";
+console.log("Username:", userName);
 
 // --------------------
 // Const Example
 // --------------------
 const fixedValue = 30;
-// fixedValue = fixedValue + 33; // ❌ Not allowed (const values cannot be reassigned)
+// fixedValue = 63; ❌ Not allowed
 
 // --------------------
-// Let Example (modern way)
+// Let Example (Block Scope)
 // --------------------
 let a = 93;
 let b = 200;
 
-console.log("Sum of a and b:", a + b); // 293
+console.log("Sum of a and b:", a + b);
 
-// Block scope with let
+// Block scope demonstration
 {
-    let a = 300; // This "a" is only inside this block
-    console.log("Inside block:", a); // 300
+  let a = 300; // Block-scoped variable
+  console.log("Inside block:", a);
 }
 
-console.log("Outside block:", a); // 93
+console.log("Outside block:", a);

@@ -1,19 +1,29 @@
+"use strict";
+
 // Function to greet a student
 function greetStudent(name) {
-    console.log(`Hey ${name}, you are nice!`);
+  console.log(`Hey ${name}, you are nice!`);
 }
 
-// Call the function with a predefined name
+// Call function with predefined name
 greetStudent("Umesh");
 
-// Get user input
-let userName = prompt("Enter your name:");
-let carColor = prompt("Enter your favorite color:");
+// Get user input safely
+const userName = prompt("Enter your name:");
+const carColor = prompt("Enter your favorite color:");
 
 // Function to display car information
 function showCar(name, color) {
-    console.log(`${name}'s car color is ${color}.`);
+  if (!name || !color) {
+    console.log("Invalid input provided.");
+    return;
+  }
+
+  const cleanName = name.trim();
+  const cleanColor = color.trim();
+
+  console.log(`${cleanName}'s car color is ${cleanColor}.`);
 }
 
-// Call the function with user inputs
+// Call function
 showCar(userName, carColor);

@@ -1,27 +1,36 @@
-// create a faulty calcultor
+// Faulty Calculator 😈
 
+const num1 = Number(prompt("Enter number 1:"));
+const num2 = Number(prompt("Enter number 2:"));
+const operator = prompt("Enter operator (+, -, *, /):");
 
-let num1 = Number(prompt("Enter the number 1: "));
-let num2 = Number(prompt("Enter the number 2: "));
+function faultyCalculator(a, b, op) {
+  const random = Math.random();
 
-function add(num1 , num2){
-    let sum = num1 - num2;
-    return sum;
+  let result;
+
+  // 30% chance to give wrong answer
+  const isFaulty = random < 0.3;
+
+  if (op === "+") {
+    result = isFaulty ? a - b : a + b;
+  } 
+  else if (op === "-") {
+    result = isFaulty ? a + b : a - b;
+  } 
+  else if (op === "*") {
+    result = isFaulty ? a / b : a * b;
+  } 
+  else if (op === "/") {
+    result = isFaulty ? a * b : a / b;
+  } 
+  else {
+    return "Invalid operator!";
+  }
+
+  return result;
 }
 
-function sub(num1,num2){
-    let diff = num1 + num2;
-    return diff;
-}
+const answer = faultyCalculator(num1, num2, operator);
 
-function mul(num1,num2){
-    let div = num1 / num2;
-    return div;
-}
-
-add()
-sub()
-mul()
-
-let num = Math.random();  
-console.log(num);
+console.log("Result:", answer);

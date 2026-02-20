@@ -1,6 +1,6 @@
-console.log("umesh is back");
-
+console.log("Umesh is back");
 
 let str = "Umesh";
-console.log(a[0])
-console.log(a[4])
+
+console.log(str[0]); // U
+console.log(str[4]); // h

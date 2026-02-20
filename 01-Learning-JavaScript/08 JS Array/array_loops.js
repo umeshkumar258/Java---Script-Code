@@ -1,72 +1,73 @@
+"use strict";
+
 // ======================
-// Looping through Arrays in JavaScript
+// Looping Through Arrays in JavaScript
 // ======================
 
-let arr = [23, 4, 5, 33];
+const arr = [23, 4, 5, 33];
 
-// ----------------------
-// 1. Traditional for loop
-// ----------------------
-console.log("Using traditional for loop:");
+// 1️⃣ Traditional for loop
+console.log("1. Traditional for loop:");
 for (let i = 0; i < arr.length; i++) {
-    console.log(`Index ${i}, Value: ${arr[i]}`);
+    console.log(`Index: ${i}, Value: ${arr[i]}`);
 }
-// ✅ Good when you need index + custom step logic
+// ✔ Best when you need index control or custom step logic
 
-// ----------------------
-// 2. for...of loop (ES6)
-// ----------------------
-console.log("\nUsing for...of loop:");
-for (let num of arr) {
-    console.log(`Value: ${num}`);
+
+// 2️⃣ for...of loop (ES6)
+console.log("\n2. for...of loop:");
+for (const value of arr) {
+    console.log(`Value: ${value}`);
 }
-// ✅ Cleaner way when you only care about values
+// ✔ Cleaner syntax when you only need values
 
-// ----------------------
-// 3. for...in loop
-// ----------------------
-console.log("\nUsing for...in loop:");
-for (let index in arr) {
+
+// 3️⃣ for...in loop
+console.log("\n3. for...in loop:");
+for (const index in arr) {
     console.log(`Index: ${index}, Value: ${arr[index]}`);
 }
-// ⚠️ Usually used for objects, but works for array indexes too
+// ⚠ Avoid for arrays in production — better for objects
 
-// ----------------------
-// 4. forEach() method
-// ----------------------
-console.log("\nUsing forEach method:");
-arr.forEach((value, index, array) => {
-    console.log(`Index: ${index}, Value: ${value}, Array: [${array}]`);
+
+// 4️⃣ forEach() method
+console.log("\n4. forEach() method:");
+arr.forEach((value, index) => {
+    console.log(`Index: ${index}, Value: ${value}`);
 });
-// ✅ Best when you want to iterate over all elements without breaking
+// ✔ Cannot use break or return to stop loop
 
-// ----------------------
-// 5. map() method
-// ----------------------
-console.log("\nUsing map method (returns a NEW array):");
-let doubled = arr.map(num => num * 2);
-console.log("Original array:", arr);
-console.log("Doubled array:", doubled);
-// ✅ map creates a new array with transformed values
 
-// ----------------------
-// 6. while loop
-// ----------------------
-console.log("\nUsing while loop:");
+// 5️⃣ map() method (Creates NEW array)
+console.log("\n5. map() method:");
+const doubled = arr.map(value => value * 2);
+console.log("Original:", arr);
+console.log("Doubled:", doubled);
+// ✔ Used when transforming data
+
+
+// 6️⃣ filter() method (Bonus Improvement)
+console.log("\n6. filter() method:");
+const greaterThan10 = arr.filter(value => value > 10);
+console.log("Values > 10:", greaterThan10);
+// ✔ Used to extract specific values
+
+
+// 7️⃣ while loop
+console.log("\n7. while loop:");
 let i = 0;
 while (i < arr.length) {
-    console.log(`Index ${i}, Value: ${arr[i]}`);
+    console.log(`Index: ${i}, Value: ${arr[i]}`);
     i++;
 }
-// ✅ Flexible loop, useful when condition is not strictly based on array length
+// ✔ Useful when loop depends on dynamic condition
 
-// ----------------------
-// 7. do...while loop
-// ----------------------
-console.log("\nUsing do...while loop:");
+
+// 8️⃣ do...while loop
+console.log("\n8. do...while loop:");
 let j = 0;
 do {
-    console.log(`Index ${j}, Value: ${arr[j]}`);
+    console.log(`Index: ${j}, Value: ${arr[j]}`);
     j++;
 } while (j < arr.length);
-// ✅ Runs at least once, even if condition is false initially
+// ✔ Executes at least once

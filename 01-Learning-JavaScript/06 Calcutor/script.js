@@ -1,36 +1,66 @@
-// Faulty Calculator 😈
+// Faulty calculator: mostly correct, but sometimes intentionally wrong.
 
-const num1 = Number(prompt("Enter number 1:"));
-const num2 = Number(prompt("Enter number 2:"));
-const operator = prompt("Enter operator (+, -, *, /):");
+function parseNumberInput(message) {
+  const value = prompt(message);
+
+  if (value === null) {
+    return null;
+  }
+
+  const parsedValue = Number(value.trim());
+  return Number.isNaN(parsedValue) ? NaN : parsedValue;
+}
 
 function faultyCalculator(a, b, op) {
-  const random = Math.random();
-
+  const isFaulty = Math.random() < 0.3;
   let result;
-
-  // 30% chance to give wrong answer
-  const isFaulty = random < 0.3;
 
   if (op === "+") {
     result = isFaulty ? a - b : a + b;
-  } 
-  else if (op === "-") {
+  } else if (op === "-") {
     result = isFaulty ? a + b : a - b;
-  } 
-  else if (op === "*") {
+  } else if (op === "*") {
     result = isFaulty ? a / b : a * b;
-  } 
-  else if (op === "/") {
+  } else if (op === "/") {
     result = isFaulty ? a * b : a / b;
-  } 
-  else {
-    return "Invalid operator!";
+  } else {
+    return {
+      ok: false,
+      message: "Invalid operator. Use one of these: +, -, *, /",
+    };
   }
 
-  return result;
+  return {
+    ok: true,
+    isFaulty,
+    result,
+  };
 }
 
-const answer = faultyCalculator(num1, num2, operator);
+const num1 = parseNumberInput("Enter number 1:");
+const num2 = parseNumberInput("Enter number 2:");
+const operatorInput = prompt("Enter operator (+, -, *, /):");
+const operator = operatorInput ? operatorInput.trim() : null;
 
-console.log("Result:", answer);
+if (num1 === null || num2 === null || operator === null) {
+  console.log("Calculation cancelled by the user.");
+} else if (Number.isNaN(num1) || Number.isNaN(num2)) {
+  alert("Please enter valid numbers.");
+  console.log("Invalid number input.");
+} else if (operator === "/" && num2 === 0) {
+  alert("Division by zero is not allowed.");
+  console.log("Division by zero blocked.");
+} else {
+  const calculation = faultyCalculator(num1, num2, operator);
+
+  if (!calculation.ok) {
+    alert(calculation.message);
+    console.log(calculation.message);
+  } else {
+    const faultLabel = calculation.isFaulty ? "faulty" : "correct";
+    const message = `Result: ${calculation.result} (${faultLabel} mode)`;
+
+    alert(message);
+    console.log(message);
+  }
+}

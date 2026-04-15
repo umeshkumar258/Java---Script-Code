@@ -1,9 +1,7 @@
-alert("hey umesh")
+alert("Hey Umesh 👋");
 
-console.log("I am console code is running....")
+console.log("Console is running...");
 
+let a = prompt("Enter your number:");
 
-var a = prompt("Enter your number")
-
-
-console.log("your num is " + a)
+console.log("Your number is:", a);

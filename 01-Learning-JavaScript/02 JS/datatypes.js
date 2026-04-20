@@ -48,3 +48,6 @@ person.age = 34;
 
 console.log("\nUpdated Person:");
 console.log(person);
+
+
+console.log("good bye")

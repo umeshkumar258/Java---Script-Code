@@ -3,33 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Variables</title>
+    <title>Styled Sections</title>
 
     <style>
-
-        .class {
+        /* Base container style */
+        .container {
             background-color: aqua;
+            padding: 10px;
+            margin: 10px 0;
         }
 
-        /* Element that has BOTH id and new class */
-        .id.new {
+        /* Special section with two classes */
+        .highlight.special {
             background-color: aquamarine;
+            padding: 10px;
+            margin: 10px 0;
         }
 
+        h1, h2 {
+            margin: 0;
+        }
     </style>
 </head>
 
 <body>
 
-    <div class="class new">
+    <div class="container highlight">
         <h1>I am good</h1>
     </div>
 
-    <section class="id new">
-        <h2>I am more good</h2>
+    <section class="highlight special">
+        <h2>I am even better</h2>
     </section>
 
     <script src="variables.js"></script>
 </body>
 </html>
-

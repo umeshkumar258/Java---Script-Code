@@ -47,3 +47,5 @@ switch(day){
     default:
         console.log("Invalid day");
 }
+
+console.log("it's over")

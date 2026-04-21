@@ -40,3 +40,6 @@ console.log("After *= 2:", num);
     console.log("Inside block grace:", grace);
 }
 console.log("Outside block grace:", grace);  // original grace = 32
+
+
+console.log("it is finshed")

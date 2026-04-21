@@ -1,4 +1,13 @@
 {
+  "name": "conditional-statements-practice",
+  "version": "1.0.0",
+  "description": "Practice project for learning conditional statements in JavaScript",
+  "main": "script.js",
+  "scripts": {
+    "start": "node script.js"
+  },
+  "author": "Umesh",
+  "license": "ISC",
   "dependencies": {
     "prompt-sync": "^4.2.0"
   }

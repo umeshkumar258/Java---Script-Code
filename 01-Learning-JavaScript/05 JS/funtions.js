@@ -1,29 +1,42 @@
 "use strict";
 
-// Function to greet a student
-function greetStudent(name) {
-  console.log(`Hey ${name}, you are nice!`);
+// Utility function to validate input
+function getValidInput(message) {
+  const input = prompt(message);
+
+  if (!input || input.trim() === "") {
+    console.error("Invalid input. Please enter a valid value.");
+    return null;
+  }
+
+  return input.trim();
 }
 
-// Call function with predefined name
-greetStudent("Umesh");
-
-// Get user input safely
-const userName = prompt("Enter your name:");
-const carColor = prompt("Enter your favorite color:");
+// Function to greet a student
+function greetStudent(name = "Guest") {
+  console.log(`Hey ${name}, you are nice!`);
+}
 
 // Function to display car information
 function showCar(name, color) {
   if (!name || !color) {
-    console.log("Invalid input provided.");
+    console.error("Missing required information.");
     return;
   }
 
-  const cleanName = name.trim();
-  const cleanColor = color.trim();
-
-  console.log(`${cleanName}'s car color is ${cleanColor}.`);
+  console.log(`${name}'s car color is ${color}.`);
 }
 
-// Call function
-showCar(userName, carColor);
+// ---- Main Execution ----
+
+// Greet predefined user
+greetStudent("Umesh");
+
+// Get validated inputs
+const userName = getValidInput("Enter your name:");
+const carColor = getValidInput("Enter your favorite color:");
+
+// Show car info only if inputs are valid
+if (userName && carColor) {
+  showCar(userName, carColor);
+}

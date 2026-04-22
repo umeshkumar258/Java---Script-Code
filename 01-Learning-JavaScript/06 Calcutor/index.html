@@ -2,67 +2,142 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Umesh | Web Developer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umesh | Web Developer</title>
+
+    <!-- Basic Styling -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            padding: 20px;
+            margin: 10px;
+            background: #fff;
+            border-radius: 8px;
+        }
+
+        h1, h2 {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style: square;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background: #333;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #333;
+            color: white;
+        }
+    </style>
 </head>
+
 <body>
 
-    <!-- Header Section -->
+    <!-- Header -->
     <header>
         <h1>Hi, I'm Umesh 👋</h1>
         <p>Aspiring Full Stack Developer</p>
     </header>
 
-    <hr>
+    <!-- Main Content -->
+    <main>
 
-    <!-- About Section -->
-    <section>
-        <h2>About Me</h2>
-        <p>
-            I am an engineering student passionate about web development,
-            JavaScript, and building real-world projects.
-        </p>
-    </section>
+        <!-- About -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                I am an engineering student passionate about web development,
+                JavaScript, and building real-world projects.
+            </p>
+        </section>
 
-    <hr>
+        <!-- Skills -->
+        <section id="skills">
+            <h2>My Skills</h2>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+            </ul>
+        </section>
 
-    <!-- Skills Section -->
-    <section>
-        <h2>My Skills</h2>
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>Python</li>
-        </ul>
-    </section>
+        <!-- Contact -->
+        <section id="contact">
+            <h2>Contact Me</h2>
 
-    <hr>
+            <form onsubmit="handleSubmit(event)">
+                <label for="name">Name:</label>
+                <input id="name" type="text" placeholder="Enter your name" required>
 
-    <!-- Contact Form -->
-    <section>
-        <h2>Contact Me</h2>
+                <label for="email">Email:</label>
+                <input id="email" type="email" placeholder="Enter your email" required>
 
-        <form>
-            <label>Name:</label><br>
-            <input type="text" placeholder="Enter your name"><br><br>
+                <label for="message">Message:</label>
+                <textarea id="message" placeholder="Write your message" required></textarea>
 
-            <label>Email:</label><br>
-            <input type="email" placeholder="Enter your email"><br><br>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
 
-            <label>Message:</label><br>
-            <textarea placeholder="Write your message"></textarea><br><br>
-
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
-
-    <hr>
+    </main>
 
     <!-- Footer -->
     <footer>
         <p>© 2026 Umesh Kumar J B</p>
     </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            if (!name || !email || !message) {
+                alert("Please fill all fields!");
+                return;
+            }
+
+            alert(`Thanks ${name}, your message has been sent!`);
+        }
+    </script>
 
 </body>
 </html>

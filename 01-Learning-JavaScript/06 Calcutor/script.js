@@ -1,66 +1,72 @@
-// Faulty calculator: mostly correct, but sometimes intentionally wrong.
+"use strict";
 
-function parseNumberInput(message) {
-  const value = prompt(message);
+// Utility: Get and validate number input
+function getNumber(message) {
+  const input = prompt(message);
 
-  if (value === null) {
-    return null;
+  if (input === null) return null;
+
+  const value = Number(input.trim());
+
+  if (Number.isNaN(value)) {
+    throw new Error("Invalid number input.");
   }
 
-  const parsedValue = Number(value.trim());
-  return Number.isNaN(parsedValue) ? NaN : parsedValue;
+  return value;
 }
 
-function faultyCalculator(a, b, op) {
-  const isFaulty = Math.random() < 0.3;
-  let result;
+// Utility: Get operator input
+function getOperator(message) {
+  const input = prompt(message);
 
-  if (op === "+") {
-    result = isFaulty ? a - b : a + b;
-  } else if (op === "-") {
-    result = isFaulty ? a + b : a - b;
-  } else if (op === "*") {
-    result = isFaulty ? a / b : a * b;
-  } else if (op === "/") {
-    result = isFaulty ? a * b : a / b;
-  } else {
-    return {
-      ok: false,
-      message: "Invalid operator. Use one of these: +, -, *, /",
-    };
+  if (input === null) return null;
+
+  const op = input.trim();
+
+  if (!["+", "-", "*", "/"].includes(op)) {
+    throw new Error("Invalid operator. Use +, -, *, /");
   }
 
+  return op;
+}
+
+// Core Logic: Faulty Calculator
+function faultyCalculator(a, b, op) {
+  const isFaulty = Math.random() < 0.3;
+
+  const operations = {
+    "+": () => (isFaulty ? a - b : a + b),
+    "-": () => (isFaulty ? a + b : a - b),
+    "*": () => (isFaulty ? a / b : a * b),
+    "/": () => (isFaulty ? a * b : a / b),
+  };
+
   return {
-    ok: true,
+    result: operations[op](),
     isFaulty,
-    result,
   };
 }
 
-const num1 = parseNumberInput("Enter number 1:");
-const num2 = parseNumberInput("Enter number 2:");
-const operatorInput = prompt("Enter operator (+, -, *, /):");
-const operator = operatorInput ? operatorInput.trim() : null;
+// ---- Main Execution ----
+try {
+  const num1 = getNumber("Enter number 1:");
+  const num2 = getNumber("Enter number 2:");
+  const operator = getOperator("Enter operator (+, -, *, /):");
 
-if (num1 === null || num2 === null || operator === null) {
-  console.log("Calculation cancelled by the user.");
-} else if (Number.isNaN(num1) || Number.isNaN(num2)) {
-  alert("Please enter valid numbers.");
-  console.log("Invalid number input.");
-} else if (operator === "/" && num2 === 0) {
-  alert("Division by zero is not allowed.");
-  console.log("Division by zero blocked.");
-} else {
-  const calculation = faultyCalculator(num1, num2, operator);
-
-  if (!calculation.ok) {
-    alert(calculation.message);
-    console.log(calculation.message);
+  if (num1 === null || num2 === null || operator === null) {
+    console.log("Calculation cancelled by user.");
+  } else if (operator === "/" && num2 === 0) {
+    throw new Error("Division by zero is not allowed.");
   } else {
-    const faultLabel = calculation.isFaulty ? "faulty" : "correct";
-    const message = `Result: ${calculation.result} (${faultLabel} mode)`;
+    const { result, isFaulty } = faultyCalculator(num1, num2, operator);
+
+    const mode = isFaulty ? "⚠️ Faulty" : "✅ Correct";
+    const message = `Result: ${result} (${mode} mode)`;
 
     alert(message);
     console.log(message);
   }
+} catch (error) {
+  alert(error.message);
+  console.error(error.message);
 }

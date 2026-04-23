@@ -1,68 +1,103 @@
-console.log("=== JavaScript Strings Examples ===");
+console.log("=== JavaScript String Methods Demo ===");
 
-// Basic string declaration
-let str = "Umesh";
-let str2 = "Babu";
+// ==============================
+// 1. Declaration
+// ==============================
+const firstName = "Umesh";
+const lastName = "Babu";
 
-console.log("Original string:", str);
+console.log("Original String:", firstName);
 
-// Accessing characters (0-based index)
-console.log("First character:", str[0]); // U
-console.log("Last character:", str[str.length - 1]); // h
+// ==============================
+// 2. Accessing Characters
+// ==============================
+console.log("First Character:", firstName[0]);
+console.log("Last Character:", firstName[firstName.length - 1]);
+console.log("Out of Range Index:", firstName[10]); // undefined
 
-// Trying to access an out-of-range index
-console.log("Character at index 5 (undefined):", str[5]);
+// ==============================
+// 3. Length
+// ==============================
+console.log("Length:", firstName.length);
 
-// String length
-console.log("Length of str:", str.length);
+// ==============================
+// 4. Concatenation
+// ==============================
+console.log("Using + :", firstName + " " + lastName);
+console.log("Using concat():", firstName.concat(" ", lastName, " Bhumi Nanu"));
+console.log(`Using Template Literal: My name is ${firstName}`);
 
-// String concatenation
-console.log("Concatenation with + :", str + str2);
-console.log("Concatenation with concat():", str.concat(str2, " Bhumi", " Nanu"));
+// ==============================
+// 5. Case Conversion
+// ==============================
+console.log("Uppercase:", firstName.toUpperCase());
+console.log("Lowercase:", lastName.toLowerCase());
 
-// Template literals (preferred for dynamic strings)
-console.log(`Using template literal: My name is ${str}`);
+// ==============================
+// 6. Checking Start/End
+// ==============================
+console.log("Starts with 'U':", firstName.startsWith("U"));
+console.log("Ends with 'h':", firstName.endsWith("h"));
 
-// Changing case
-console.log("Uppercase:", str.toUpperCase());
-console.log("Lowercase:", str2.toLowerCase());
+// ==============================
+// 7. Slicing & Substring
+// ==============================
+console.log("Slice (2,4):", firstName.slice(2, 4));
 
-// Checking start and end of string
-console.log("Ends with 'h'? :", str.endsWith("h"));
-console.log("Starts with 'U'? :", str.startsWith("U"));
+// ==============================
+// 8. Searching
+// ==============================
+console.log("Index of 'm':", firstName.indexOf("m"));
+console.log("Includes 'mesh':", firstName.includes("mesh"));
 
-// Slicing strings
-console.log("Slice str[2,4]:", str.slice(2, 4));
+// ==============================
+// 9. Replace
+// ==============================
+const replaced = firstName.replace("sh", "44");
+console.log("Replaced String:", replaced);
+console.log("Original remains unchanged:", firstName); // immutable
 
-// Finding index of character
-console.log("Index of 'm':", str.indexOf("m"));
+// ==============================
+// 10. Trim
+// ==============================
+const rawText = "   Hello AI World   ";
+console.log("Trimmed:", rawText.trim());
 
-// Replacing substring
-console.log("Replace 'sh' with '44':", str.replace("sh", "44"));
+// ==============================
+// 11. Split (Tokenization)
+// ==============================
+const sentence = "AI is transforming the world";
+const words = sentence.split(" ");
+console.log("Words:", words);
 
-// Strings are immutable
-console.log("Original string after replace (unchanged):", str);
+// ==============================
+// 12. Repeat
+// ==============================
+console.log("Repeat 3 times:", firstName.repeat(3));
 
-// Trimming whitespace
-let str3 = "   Hello AI World   ";
-console.log("Trimmed string:", str3.trim());
+// ==============================
+// 13. Convert to Array
+// ==============================
+console.log("Character Array:", Array.from(firstName));
 
-// Splitting strings (useful in NLP and AI for tokenization)
-let sentence = "AI is transforming the world";
-let words = sentence.split(" ");
-console.log("Split sentence into words:", words);
+// ==============================
+// 14. Reverse String
+// ==============================
+const reversed = [...firstName].reverse().join("");
+console.log("Reversed:", reversed);
 
-// Checking inclusion
-console.log("Does sentence include 'AI'? :", sentence.includes("AI"));
+// ==============================
+// 15. Modern Useful Methods
+// ==============================
 
-// Repeating strings
-console.log("Repeat str 3 times:", str.repeat(3));
+// Pad string
+console.log("Pad Start:", firstName.padStart(10, "*"));
+console.log("Pad End:", firstName.padEnd(10, "*"));
 
-// Converting to array of characters (for AI preprocessing)
-console.log("Array of characters:", Array.from(str));
+// Trim variants
+const messy = "   JS Rocks   ";
+console.log("Trim Start:", messy.trimStart());
+console.log("Trim End:", messy.trimEnd());
 
-// Reversing a string (common in text manipulation tasks)
-let reversed = str.split("").reverse().join("");
-console.log("Reversed string:", reversed);
-
-console.log("=== End of String Examples ===");
+// ==============================
+console.log("=== End of Demo ===");

@@ -2,22 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM Practice</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s ease;
+        }
+
+        .container {
+            padding: 20px;
+            color: white;
+            font-size: 20px;
+        }
+    </style>
 </head>
 <body>
 
-    <div class="container"></div>
+    <div class="container">
+        <h1>DOM Practice Page</h1>
+        <p>Check console for output</p>
+    </div>
 
     <script>
-        // Change page title
-        document.title = "Umesh is Good";
-        console.log("Title:", document.title);
+        // Run JS after DOM loads
+        document.addEventListener("DOMContentLoaded", () => {
 
-        // Log body
-        console.log("Body:", document.body);
+            // Change page title
+            document.title = "Umesh is Good";
+            console.log("Title:", document.title);
 
-        // Change background color
-        document.body.style.backgroundColor = "red";
+            // Log body
+            console.log("Body:", document.body);
+
+            // Change background color
+            document.body.style.backgroundColor = "red";
+
+        });
     </script>
 
 </body>

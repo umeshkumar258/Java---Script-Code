@@ -1,92 +1,64 @@
 "use strict";
 
-// ============================
-// 1️⃣ Classic for loop
-// ============================
-console.log("=== Classic for loop ===");
+// 1. for loop
+console.log("=== for loop ===");
 
-for (let invoiceNumber = 33; invoiceNumber < 36; invoiceNumber++) {
-  console.log(`Invoice Number: ${invoiceNumber}`);
+for (let i = 1; i <= 5; i++) {
+  console.log(i);
 }
 
-// ============================
-// 2️⃣ for...in loop (Objects)
-// ============================
-console.log("\n=== for...in loop ===");
+
+// 2. for...in loop - Object
+console.log("\n=== for...in ===");
 
 const person = {
   name: "Umesh",
-  age: 77,
-  city: "Bangalore",
+  age: 19,
+  city: "Bangalore"
 };
 
-for (const key in person) {
-  if (Object.hasOwn(person, key)) {
-    console.log(`${key}: ${person[key]}`);
-  }
+for (let key in person) {
+  console.log(key, person[key]);
 }
 
-// ============================
-// 3️⃣ for...of loop (Iterables)
-// ============================
-console.log("\n=== for...of loop ===");
 
-const str = "Umesh";
-console.log("Characters in string:");
-for (const char of str) {
-  console.log(char);
+// 3. for...of loop - Array
+console.log("\n=== for...of ===");
+
+const fruits = ["Apple", "Banana", "Mango"];
+
+for (let fruit of fruits) {
+  console.log(fruit);
 }
 
-const shoppingList = ["Milk", "Bread", "Eggs"];
-console.log("\nShopping List:");
-for (const item of shoppingList) {
-  console.log(`- ${item}`);
-}
 
-// ============================
-// 4️⃣ while loop
-// ============================
+// 4. while loop
 console.log("\n=== while loop ===");
 
-let notificationCount = 1;
-while (notificationCount < 5) {
-  console.log(`Notification #${notificationCount}`);
-  notificationCount++;
+let i = 1;
+
+while (i <= 5) {
+  console.log(i);
+  i++;
 }
 
-// ============================
-// 5️⃣ do...while loop
-// ============================
-console.log("\n=== do...while loop ===");
 
-let attempts = 0;
+// 5. do...while loop
+console.log("\n=== do...while ===");
+
+let j = 1;
+
 do {
-  console.log(`Attempt #${attempts + 1}`);
-  attempts++;
-} while (attempts < 4);
+  console.log(j);
+  j++;
+} while (j <= 5);
 
-// ============================
-// 6️⃣ forEach (Array method)
-// ============================
-console.log("\n=== forEach loop ===");
 
-const emails = ["a@example.com", "b@example.com", "c@example.com"];
+// 6. forEach
+console.log("\n=== forEach ===");
 
-emails.forEach((email, index) => {
-  console.log(`Sending email to: ${email} (User #${index + 1})`);
+const numbers = [10, 20, 30];
+
+numbers.forEach(function (number) {
+  console.log(number);
 });
-
-// ============================
-// 7️⃣ Mixed array processing
-// ============================
-console.log("\n=== Mixed Array ===");
-
-const mixedList = [33, 55, 22, "Umesh", 3034];
-
-console.log("Using for...of:");
-for (const value of mixedList) {
-  console.log(value);
-}
-
-console.log("Using forEach:");
-mixedList.forEach(value => console.log(value));

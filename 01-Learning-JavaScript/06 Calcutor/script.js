@@ -70,3 +70,5 @@ try {
   alert(error.message);
   console.error(error.message);
 }
+
+console.log("It is a calculaoter")

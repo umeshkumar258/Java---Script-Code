@@ -40,3 +40,6 @@ const max = arr2.reduce((acc, curr) => Math.max(acc, curr));
 console.log("Product:", product);
 console.log("Sum:", sum);
 console.log("Max:", max);
+
+
+console.log("i am back")

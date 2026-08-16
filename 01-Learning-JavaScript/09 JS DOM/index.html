@@ -5,19 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM Practice</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            transition: background-color 0.3s ease;
-        }
-
-        .container {
-            padding: 20px;
-            color: white;
-            font-size: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -26,22 +14,6 @@
         <p>Check console for output</p>
     </div>
 
-    <script>
-        // Run JS after DOM loads
-        document.addEventListener("DOMContentLoaded", () => {
-
-            // Change page title
-            document.title = "Umesh is Good";
-            console.log("Title:", document.title);
-
-            // Log body
-            console.log("Body:", document.body);
-
-            // Change background color
-            document.body.style.backgroundColor = "red";
-
-        });
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>

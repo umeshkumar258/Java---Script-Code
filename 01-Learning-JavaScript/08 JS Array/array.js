@@ -1,82 +1,88 @@
 "use strict";
 
-console.log("=== JavaScript Arrays (Clean Demo) ===");
+console.log("JavaScript Array Practice");
 
-// ==============================
-// 1. Declaration
-// ==============================
 const numbers = [1, 2, 5, 6, 8];
 const moreNumbers = [55, 676];
 
-console.log("Original:", numbers);
+console.log("Numbers:", numbers);
 console.log("Length:", numbers.length);
 
-// ==============================
-// 2. Mutability
-// ==============================
+
+// Changing an array value
 numbers[0] = 8;
-console.log("Updated First Element:", numbers);
+console.log("After changing first element:", numbers);
 
-// ==============================
-// 3. Combine Arrays
-// ==============================
-const combined1 = numbers.concat(moreNumbers);
-const combined2 = [...numbers, ...moreNumbers];
 
-console.log("Concat:", combined1);
-console.log("Spread (Modern):", combined2);
+// Combining two arrays
+const combined = numbers.concat(moreNumbers);
+console.log("Using concat:", combined);
 
-// ==============================
-// 4. Sorting
-// ==============================
-const sorted = [...numbers].sort((a, b) => a - b);
-console.log("Sorted (Numeric):", sorted);
+const combinedArray = [...numbers, ...moreNumbers];
+console.log("Using spread:", combinedArray);
 
-// ==============================
-// 5. Iteration Methods
-// ==============================
 
-// Filter
-const filtered = numbers.filter(n => n > 5);
-console.log("Filter > 5:", filtered);
+// Sorting numbers
+const sortedNumbers = [...numbers].sort((a, b) => a - b);
+console.log("Sorted array:", sortedNumbers);
 
-// Map
-const doubled = numbers.map(n => n * 2);
-console.log("Doubled:", doubled);
 
-// Reduce
-const sum = numbers.reduce((acc, curr) => acc + curr, 0);
-console.log("Sum:", sum);
+// Filter numbers greater than 5
+const filteredNumbers = numbers.filter(function (num) {
+    return num > 5;
+});
 
-// ==============================
-// 6. Slice vs Splice
-// ==============================
+console.log("Numbers greater than 5:", filteredNumbers);
 
-// Slice (non-mutating)
-const sliced = numbers.slice(1, 3);
-console.log("Slice (1,3):", sliced);
 
-// Splice (mutating)
-const copy = [...numbers];
-copy.splice(1, 2);
-console.log("After Splice:", copy);
+// Double every number
+const doubledNumbers = numbers.map(function (num) {
+    return num * 2;
+});
 
-// ==============================
-// 7. Extra Useful Methods
-// ==============================
+console.log("Doubled numbers:", doubledNumbers);
 
-// Find
-const found = numbers.find(n => n > 5);
-console.log("First > 5:", found);
 
-// Includes
-console.log("Includes 6:", numbers.includes(6));
+// Find the total
+const total = numbers.reduce(function (sum, num) {
+    return sum + num;
+}, 0);
 
-// Push & Pop
-const temp = [...numbers];
-temp.push(100);
-temp.pop();
-console.log("After Push & Pop:", temp);
+console.log("Total:", total);
 
-// ==============================
-console.log("=== End of Demo ===");
+
+// Slice does not change the original array
+const slicedArray = numbers.slice(1, 3);
+console.log("Slice:", slicedArray);
+
+
+// Splice changes the array
+const newArray = [...numbers];
+newArray.splice(1, 2);
+
+console.log("After splice:", newArray);
+
+
+// Find the first number greater than 5
+const firstNumber = numbers.find(function (num) {
+    return num > 5;
+});
+
+console.log("First number greater than 5:", firstNumber);
+
+
+// Check whether 6 exists
+console.log("Does array contain 6?", numbers.includes(6));
+
+
+// Push adds an element
+// Pop removes the last element
+const tempArray = [...numbers];
+
+tempArray.push(100);
+console.log("After push:", tempArray);
+
+tempArray.pop();
+console.log("After pop:", tempArray);
+
+console.log("End of array practice");

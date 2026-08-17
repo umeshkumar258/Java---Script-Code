@@ -1,18 +1,15 @@
 def factorial(n):
-    """Return factorial of a number."""
     if n < 0:
-        return "Factorial is not defined for negative numbers."
-    
+        return "Not possible"
+
     result = 1
+
     for i in range(1, n + 1):
-        result *= i   # cleaner multiplication
-    
+        result = result * i
+
     return result
 
 
-# Taking user input
-try:
-    num = int(input("Enter a number: "))
-    print("Factorial:", factorial(num))
-except ValueError:
-    print("Please enter a valid integer.")
+num = int(input("Enter a number: "))
+
+print("Factorial:", factorial(num))

@@ -1,103 +1,67 @@
-console.log("=== JavaScript String Methods Demo ===");
+console.log("JavaScript String Methods");
 
-// ==============================
-// 1. Declaration
-// ==============================
 const firstName = "Umesh";
 const lastName = "Babu";
 
-console.log("Original String:", firstName);
+console.log("Name:", firstName);
 
-// ==============================
-// 2. Accessing Characters
-// ==============================
-console.log("First Character:", firstName[0]);
-console.log("Last Character:", firstName[firstName.length - 1]);
-console.log("Out of Range Index:", firstName[10]); // undefined
-
-// ==============================
-// 3. Length
-// ==============================
+// Accessing characters
+console.log("First character:", firstName[0]);
+console.log("Last character:", firstName[firstName.length - 1]);
 console.log("Length:", firstName.length);
 
-// ==============================
-// 4. Concatenation
-// ==============================
-console.log("Using + :", firstName + " " + lastName);
-console.log("Using concat():", firstName.concat(" ", lastName, " Bhumi Nanu"));
-console.log(`Using Template Literal: My name is ${firstName}`);
+// Joining strings
+console.log("Full name:", firstName + " " + lastName);
+console.log("Using concat:", firstName.concat(" ", lastName));
+console.log(`Hello, my name is ${firstName}`);
 
-// ==============================
-// 5. Case Conversion
-// ==============================
+// Changing case
 console.log("Uppercase:", firstName.toUpperCase());
 console.log("Lowercase:", lastName.toLowerCase());
 
-// ==============================
-// 6. Checking Start/End
-// ==============================
-console.log("Starts with 'U':", firstName.startsWith("U"));
-console.log("Ends with 'h':", firstName.endsWith("h"));
+// Checking a string
+console.log(firstName.startsWith("U"));
+console.log(firstName.endsWith("h"));
+console.log(firstName.includes("mesh"));
 
-// ==============================
-// 7. Slicing & Substring
-// ==============================
-console.log("Slice (2,4):", firstName.slice(2, 4));
+// Finding characters
+console.log("Position of m:", firstName.indexOf("m"));
 
-// ==============================
-// 8. Searching
-// ==============================
-console.log("Index of 'm':", firstName.indexOf("m"));
-console.log("Includes 'mesh':", firstName.includes("mesh"));
+// Getting part of a string
+console.log("Part of name:", firstName.slice(2, 4));
 
-// ==============================
-// 9. Replace
-// ==============================
-const replaced = firstName.replace("sh", "44");
-console.log("Replaced String:", replaced);
-console.log("Original remains unchanged:", firstName); // immutable
+// Replacing text
+const newName = firstName.replace("sh", "44");
+console.log("After replace:", newName);
+console.log("Original name:", firstName);
 
-// ==============================
-// 10. Trim
-// ==============================
-const rawText = "   Hello AI World   ";
-console.log("Trimmed:", rawText.trim());
+// Removing extra spaces
+const message = "   Hello AI World   ";
+console.log("Trimmed:", message.trim());
 
-// ==============================
-// 11. Split (Tokenization)
-// ==============================
+// Splitting a sentence
 const sentence = "AI is transforming the world";
 const words = sentence.split(" ");
 console.log("Words:", words);
 
-// ==============================
-// 12. Repeat
-// ==============================
-console.log("Repeat 3 times:", firstName.repeat(3));
+// Repeating a string
+console.log(firstName.repeat(3));
 
-// ==============================
-// 13. Convert to Array
-// ==============================
-console.log("Character Array:", Array.from(firstName));
+// Convert string to array
+const characters = Array.from(firstName);
+console.log("Characters:", characters);
 
-// ==============================
-// 14. Reverse String
-// ==============================
-const reversed = [...firstName].reverse().join("");
+// Reverse a string
+const reversed = firstName.split("").reverse().join("");
 console.log("Reversed:", reversed);
 
-// ==============================
-// 15. Modern Useful Methods
-// ==============================
+// Padding
+console.log(firstName.padStart(10, "*"));
+console.log(firstName.padEnd(10, "*"));
 
-// Pad string
-console.log("Pad Start:", firstName.padStart(10, "*"));
-console.log("Pad End:", firstName.padEnd(10, "*"));
+// Trim only one side
+const text = "   JavaScript Rocks   ";
+console.log(text.trimStart());
+console.log(text.trimEnd());
 
-// Trim variants
-const messy = "   JS Rocks   ";
-console.log("Trim Start:", messy.trimStart());
-console.log("Trim End:", messy.trimEnd());
-
-// ==============================
-console.log("=== End of Demo ===");
+console.log("Done!");

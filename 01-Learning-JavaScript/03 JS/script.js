@@ -1,26 +1,37 @@
+// ==================================
+// CONDITIONAL STATEMENTS
+// ==================================
+
 console.log("---- Conditional Statements ----");
 
 let age = 16;
 
-// if condition
+// ==================================
+// IF, ELSE IF, ELSE
+// ==================================
+
 if (age > 18) {
     console.log("You can drive");
-}
-// else if condition
-else if (age === 16) {
+} else if (age === 16) {
     console.log("You are 16, almost ready to drive!");
-}
-// else condition
-else {
+} else {
     console.log("You cannot drive");
 }
 
-// ternary operator (short if-else)
-let result = (age > 18) ? "Adult" : "Minor";
+// ==================================
+// TERNARY OPERATOR
+// ==================================
+
+let result = age > 18 ? "Adult" : "Minor";
+
 console.log("Ternary result:", result);
 
-// multiple conditions
+// ==================================
+// MULTIPLE CONDITIONS
+// ==================================
+
 let marks = 75;
+
 if (marks >= 90) {
     console.log("Grade: A");
 } else if (marks >= 75) {
@@ -31,21 +42,29 @@ if (marks >= 90) {
     console.log("Grade: Fail");
 }
 
-// switch statement
+// ==================================
+// SWITCH STATEMENT
+// ==================================
+
 let day = 2;
 
-switch(day){
+switch (day) {
     case 1:
         console.log("Monday");
         break;
+
     case 2:
         console.log("Tuesday");
         break;
+
     case 3:
         console.log("Wednesday");
         break;
+
     default:
         console.log("Invalid day");
 }
 
-console.log("it's over")
+// ==================================
+
+console.log("It's over");

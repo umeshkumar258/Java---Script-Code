@@ -1,3 +1,5 @@
+console.log("About Dog API")
+
 let btn = document.querySelector("#btn");
 
 btn.addEventListener("click", async () => {

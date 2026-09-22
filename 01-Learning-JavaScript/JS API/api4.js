@@ -9,9 +9,9 @@ btn.addEventListener("click",async()=>{
 
     let colArr = await getCollege(country)
 
-    // let collist = document.querySelector("#result")
+    let collist = document.querySelector("#result")
 
-    // collist.textContent = show(colArr)
+    collist.textContent = show(colArr)
     
 
     show(colArr)

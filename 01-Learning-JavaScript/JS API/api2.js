@@ -16,21 +16,21 @@ btn.addEventListener("click", async () => {
 
 let url = "https://catfact.ninja/fact"
 
-// async function getFacts() {
+async function getFacts() {
 
-//     try {
-//         let res = await fetch(url)
-//         let data = await res.json()
-//         console.log(res)
-//         console.log(data)
-//     } 
-//     catch(err){
-//         console.log("Error Occures",err)
-//     }
-//     console.log("Good Bye")
-// }
+    try {
+        let res = await fetch(url)
+        let data = await res.json()
+        console.log(res)
+        console.log(data)
+    } 
+    catch(err){
+        console.log("Error Occures",err)
+    }
+    console.log("Good Bye")
+}
 
-// getFacts();
+getFacts();
 
 
 

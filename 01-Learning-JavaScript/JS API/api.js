@@ -1,3 +1,5 @@
+console.log("API Concept")
+
 let url = "https://catfact.ninja/fact"
 
 fetch(url)
@@ -25,4 +27,3 @@ fetch(url)
     console.log(err);
 })
 
-console.log("I am happy..")

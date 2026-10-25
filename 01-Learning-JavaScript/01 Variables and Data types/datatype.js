@@ -1,6 +1,6 @@
 "use strict";
 
-// 1️⃣ Data Types
+// 1️ Data Types
 const numberValue = 7;
 const userName = "Umesh";
 const isActive = false;
@@ -34,7 +34,7 @@ const reversedNumber = reverseNumber(originalNumber);
 console.log(`Original: ${originalNumber}`);
 console.log(`Reversed: ${reversedNumber}`);
 
-// 3️⃣ Array Search
+// 3️ Array Search
 const numbersArray = [1, 3, 4, 6, 7, 8];
 const searchValue = 6;
 
@@ -44,7 +44,7 @@ console.log(
     : `${searchValue} not found ❌`
 );
 
-// 4️⃣ Block Scope
+// 4️ Block Scope
 {
   const blockValue = 99;
   console.log(`Block Value: ${blockValue}`);

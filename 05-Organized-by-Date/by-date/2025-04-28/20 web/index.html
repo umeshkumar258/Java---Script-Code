@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Styling Example</title>
+    <style>
+        /* Style for the first <p> child inside each <div> */
+        div > p:first-child {
+            color: red;
+            background-color: brown;
+            font-weight: bold;
+        }
+
+        /* Style for all other <p> elements inside a <div> */
+        div > p:not(:first-child) {
+            color: aqua;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>I am good</p>           <!-- First child — styled red/brown -->
+        <p>I am two good</p>       <!-- Styled aqua/blue -->
+        <p>I am three good</p>     <!-- Styled aqua/blue -->
+    </div>
+
+    <div>
+        <p>I am four good</p>      <!-- First child — styled red/brown -->
+        <p>I am five good</p>      <!-- Styled aqua/blue -->
+    </div>
+</body>
+</html>

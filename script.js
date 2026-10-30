@@ -20,3 +20,5 @@ const getData = async () => {
 };
 
 btn.addEventListener("click", getData);
+
+console.log("End of Programe")

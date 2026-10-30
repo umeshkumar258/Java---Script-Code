@@ -4,5 +4,8 @@ def add(a,b):
 def sub(a,b):
     print("Subtrating on calutor..")
 
+def mul(a,b):
+    print("mutlication on calutor..")
+
 
 print("someting changes i did..")

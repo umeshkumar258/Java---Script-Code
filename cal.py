@@ -5,4 +5,4 @@ def sub(a,b):
     print("Subtrating on calutor..")
 
 
-print("someting changes i did..")
+print("New one")

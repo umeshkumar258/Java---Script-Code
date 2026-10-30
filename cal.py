@@ -8,4 +8,4 @@ def mul(a,b):
     print("mutlication on calutor..")
 
 
-print("someting changes i did..")
+print("New one")
